@@ -6,10 +6,13 @@ import { PrismaService } from "src/prisma/prisma.service";
 import { isInstance } from "class-validator";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime";
 import { deepStrictEqual } from "assert";
+import { ConfigService } from "@nestjs/config";
 
 @Injectable()
 export class AuthService{
     constructor(
+        private config: ConfigService,
+        private jwt: JwtService,
         private prisma: PrismaService,
     ){}
 
